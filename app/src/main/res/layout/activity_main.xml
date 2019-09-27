@@ -6,13 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/progressCircular"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/progress_bar_width"
+        android:layout_height="@dimen/progress_bar_height"
+        android:background="@drawable/cirecle_transparent"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/cirecle_primary"
+        android:rotation="-90"
+        app:layout_constraintBottom_toTopOf="@+id/imgStartStop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtMinute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:textSize="20sp"
+        android:inputType="numberSigned"
+        android:hint="@string/hint_input"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/tvTime"
+        app:layout_constraintEnd_toEndOf="@+id/progressCircular"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/progressCircular"
+        app:layout_constraintTop_toTopOf="@+id/progressCircular" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:text="@string/start_time"
+        app:layout_constraintBottom_toTopOf="@+id/imgReset"
+        app:layout_constraintEnd_toEndOf="@+id/progressCircular"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/progressCircular"
+        app:layout_constraintTop_toBottomOf="@+id/edtMinute"
+        tools:text="@tools:sample/date/hhmmss" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgReset"
+        android:layout_width="@dimen/icon_width"
+        android:layout_height="@dimen/icon_height"
+        app:layout_constraintBottom_toBottomOf="@+id/progressCircular"
+        app:layout_constraintEnd_toEndOf="@+id/progressCircular"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/progressCircular"
+        app:layout_constraintTop_toBottomOf="@+id/tvTime"
+        app:srcCompat="@drawable/ic_reset"
+        app:tint="@color/colorPrimaryDark"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgStartStop"
+        android:layout_width="@dimen/icon_width"
+        android:layout_height="@dimen/icon_height"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressCircular"
+        app:srcCompat="@drawable/ic_start"
+        app:tint="@color/colorPrimaryDark"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
